@@ -1,0 +1,58 @@
+/* estilos separados para la tarjeta de buena suerte */
+:root{
+  --bg-dark: #051022;
+  --glass: rgba(255,255,255,0.06);
+  --glass-2: rgba(255,255,255,0.10);
+  --accent1:#ff7a59;
+  --accent2:#ffd166;
+  --text:#ffffff;
+  --muted: rgba(255,255,255,0.78);
+  --radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background-image: linear-gradient(180deg, rgba(2,6,20,0.55), rgba(2,6,20,0.55)), url('sofi.jpg');
+  background-size:cover;background-position:center 36%;
+  display:flex;align-items:center;justify-content:center;padding:2.25rem;min-height:100vh;color:var(--text);
+}
+.wrap{position:relative;width:min(980px,96vw)}
+.card{
+  display:grid;grid-template-columns: 420px 1fr;gap:1.25rem;align-items:stretch;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border-radius:var(--radius);padding:1.25rem;border:1px solid rgba(255,255,255,0.07);
+  backdrop-filter: blur(6px) saturate(120%);box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+}
+.photo{
+  border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);
+  background-image: url('ma.jpg');
+  background-size:cover;background-position:center;min-height:380px;position:relative;
+}
+.photo::after{
+  content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.46));
+}
+.message{padding:0.4rem 0.2rem 0.2rem 0.2rem}
+h1{font-size:clamp(1.6rem,4.6vw,2.6rem);line-height:1.02;margin-bottom:0.35rem;text-transform:capitalize}
+.accent{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800}
+.lead{font-size:1.03rem;color:var(--muted);margin-bottom:1rem}
+.meta{display:flex;flex-direction:column;gap:0.5rem}
+.chip{display:inline-block;padding:0.45rem 0.7rem;border-radius:999px;background:var(--glass);border:1px solid rgba(255,255,255,0.06);font-weight:700;width:max-content}
+.tip{font-size:0.96rem;color:rgba(255,255,255,0.9)}
+.from{margin-top:1.4rem;font-size:0.98rem;color:rgba(255,255,255,0.92)}
+
+/* pequeñas decoraciones*/
+.decor-left, .decor-right{position:absolute;z-index:0;filter:blur(18px);opacity:0.6}
+.decor-left{left:-60px;top:-40px;width:220px;height:220px;background:radial-gradient(circle at 30% 30%, rgba(255,122,89,0.18), rgba(255,122,89,0) 35%)}
+.decor-right{right:-40px;bottom:-40px;width:260px;height:260px;background:radial-gradient(circle at 70% 70%, rgba(255,209,102,0.18), rgba(255,209,102,0) 35%)}
+
+/* responsive */
+@media (max-width:880px){
+  .card{grid-template-columns:1fr;}
+  .photo{min-height:260px}
+}
+@media (max-width:420px){
+  body{padding:1rem}
+  .photo{min-height:180px}
+  .lead{font-size:0.98rem}
+}
